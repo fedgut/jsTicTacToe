@@ -10,3 +10,7 @@ body {
   background-color: rgba(65, 65, 65, 0.589);
 }
 
+.cell-hover img {
+  object-fit: contain;
+  max-height: 100px;
+}

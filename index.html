@@ -1,68 +1,109 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="assets/style.css"/>
 </head>
 <body>
 
   <div class="container h-100">
-    
-    <div class="row">
-      <div class="form-group mx-2">
-        <label for="name1"> Player One</label>
-        <input type="text" class="form-control" name="name1" id="player1" rows="3"></input>
+    <form id="player-form" class="needs-validation" novalidate>
+      <div class="row d-flex justify-content-center">
+        <div class="form-group mx-2" id="player-input">
+          <label for="name1"> Player One</label>
+          <input type="text" class="form-control" name="name1" id="player1" rows="3" required></input>
+        </div>
+        <div class="form-group mx-2" id="player-input">
+          <label for="name2"> Player Two </label>
+          <input type="text" class="form-control" name="name2" id="player2" rows="3"></input>
+        </div>
+        <div class="form-group mx-2">
+          <input type="button" disabled class="form-control" name="submit" id="submit" rows="3" value="Submit" onclick="startGame(this.form)"></input>
+        </div>
       </div>
-      <div class="form-group mx-2">
-        <label for="name2"> Player Two </label>
-        <input type="text" class="form-control" name="name2" id="player2" rows="3"></input>
-      </div>
-    </div>
+    </form>
 
-    <div class="row h-100">
-      <table class="table table table-bordered h-50 text-center ">
-        <thead class="thead-dark">
-          <tr>
-            <th> Tic </th>
-            <th> Tac </th>
-            <th> Toe </th>
-          </tr>
-        </thead>
-        <tbody class="table h-100">
-          <tr class="h-30">
-            <td class="cell-hover align-middle border border-dark border-left-0" id='box0' scope="row"> 0 </td>
-            <td class="cell-hover align-middle border border-dark" id='box1'> 1 </td>
-            <td class="cell-hover align-middle border border-dark border-right-0" id='box2'> 2 </td>
-          </tr>
-          <tr class="h-30">
-            <td class="cell-hover align-middle border border-dark border-left-0" id='box3' scope="row"> 3 </td>
-            <td class="cell-hover align-middle border border-dark" id='box4'> 4 </td>
-            <td class="cell-hover align-middle border border-dark border-right-0" id='box5'> 5 </td>
-          </tr>
-          <tr class="h-30">
-            <td class="cell-hover align-middle border border-dark border-left-0 border-bottom-0" id='box6' scope="row"> 6 </td>
-            <td class="cell-hover align-middle border border-dark border-bottom-0" id='box7'> 7 </td>
-            <td class="cell-hover align-middle border border-dark border-bottom-0 border-right-0" id='box8'> 8 </td>
-          </tr>
-        </tbody>
-      </table>
+
+    <div id="game-board">
+      <div class="row">
+        <div class="col initial-message text-center" id="initial-message">
+          Type in player names
+        </div>
+      </div>
+      <div class="row d-none" id="start-game">
+        <table class="table table table-bordered h-50 text-center ">
+          <thead class="thead-dark">
+            <tr>
+              <th> Tic </th>
+              <th> Tac </th>
+              <th> Toe </th>
+            </tr>
+          </thead>
+          <tbody class="table h-100">
+            <tr class="h-30">
+              <td class="cell-hover align-middle border border-dark border-left-0" id='0' scope="row">
+                <img src="./assets/no-img.png" alt="" class="img-rounded img-fluid center-block">
+              </td>
+              <td class="cell-hover align-middle border border-dark" id='1'>
+                <img src="./assets/no-img.png" alt="" class="img-rounded img-fluid center-block">
+              </td>
+              <td class="cell-hover align-middle border border-dark border-right-0" id='2'>
+                <img src="./assets/no-img.png" alt="" class="img-rounded img-fluid center-block">
+              </td>
+            </tr>
+            <tr class="h-30">
+              <td class="cell-hover align-middle border border-dark border-left-0" id='3' scope="row">
+                <img src="./assets/no-img.png" alt="" class="img-rounded img-fluid center-block">
+              </td>
+              <td class="cell-hover align-middle border border-dark" id='4'>
+                <img src="./assets/no-img.png" alt="" class="img-rounded img-fluid center-block">
+              </td>
+              <td class="cell-hover align-middle border border-dark border-right-0" id='5'>
+                <img src="./assets/no-img.png" alt="" class="img-rounded img-fluid center-block">
+              </td>
+            </tr>
+            <tr class="h-30">
+              <td class="cell-hover align-middle border border-dark border-left-0 border-bottom-0" id='6' scope="row">
+                <img src="./assets/no-img.png" alt="" class="img-rounded img-fluid center-block">
+              </td>
+              <td class="cell-hover align-middle border border-dark border-bottom-0" id='7'>
+                <img src="./assets/no-img.png" alt="" class="img-rounded img-fluid center-block">
+              </td>
+              <td class="cell-hover align-middle border border-dark border-bottom-0 border-right-0" id='8'>
+                <img src="./assets/no-img.png" alt="" class="img-rounded img-fluid center-block">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-    
-
-
-
-
-  
-  
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="./assets/script.js"></script>
+  <script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+  (function() {
+    'use strict';
+    window.addEventListener('load', function() {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.getElementsByClassName('needs-validation');
+      // Loop over them and prevent submission
+      var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
+  </script>
 </body>
 </html>
