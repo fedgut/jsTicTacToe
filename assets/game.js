@@ -15,16 +15,36 @@ const Game = (player1, player2) => {
       [board[4], board[5], board[6]],
       [board[7], board[8], board[9]],
     ];
+    // All strings
+    // Strings are all equal
+    // all strings not all equal, it's a t
     return possible;
   };
 
-  const gameOver = null;
-  const winner = null;
-  const turn = null;
+  let gameOver = false;
+  let winner = null;
+
+  const setWinner = (winSign) => {
+    winner = winSign;
+  };
+
+  const endGame = () => {
+    gameOver = true;
+  };
 
   const checkWin = () => {
-    possibleWins();
-    // check if player wins
+    const allStrings = (el) => typeof el === 'string';
+    const possible = possibleWins().filter(x => {
+      if (x.every(allStrings) && [...new Set(x)].length > 1) {
+        return x;
+      }
+      if (x.every(allStrings) && [...new Set(x)].length === 1) {
+        setWinner(x[0]);
+        endGame();
+        console.log(winner, gameOver);
+        return x;
+      }
+    });
   };
 
   const move = (sign, position) => {
@@ -35,6 +55,13 @@ const Game = (player1, player2) => {
   };
 
   return {
-    board, players, gameOver, winner, turn, move, possibleWins,
+    board, players, gameOver, winner, move,
   };
 };
+const myGame = Game('Jim', 'Jeff');
+myGame.move('X', 3);
+myGame.move('O', 2);
+myGame.move('O', 1);
+myGame.move('O', 5);
+myGame.move('O', 9);
+console.log(myGame);
