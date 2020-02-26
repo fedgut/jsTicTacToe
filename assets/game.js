@@ -21,9 +21,6 @@ ${board[7]} | ${board[8]} | ${board[9]}`;
       [board[4], board[5], board[6]],
       [board[7], board[8], board[9]],
     ];
-    // All strings
-    // Strings are all equal
-    // all strings not all equal, it's a t
     return possible;
   };
 
