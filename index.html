@@ -4,76 +4,71 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="assets/style.css"/>
 </head>
 <body>
 
-  <div class="container h-100">
-    <form id="player-form" class="needs-validation" novalidate>
-      <div class="row d-flex justify-content-center">
-        <div class="form-group mx-2" id="player-input">
+  <div class="">
+    <form id="player-form" class="needs-validation " novalidate>
+        <div class="player-name" id="player-input">
           <label for="name1"> Player One</label>
-          <input type="text" class="form-control" name="name1" id="player1" rows="3" required></input>
+          <input type="text" class="" name="name1" id="player1" rows="3" required></input>
         </div>
-        <div class="form-group mx-2" id="player-input">
+        <div class="player-name" id="player-input">
           <label for="name2"> Player Two </label>
-          <input type="text" class="form-control" name="name2" id="player2" rows="3"></input>
+          <input type="text" name="name2" id="player2" rows="3"></input>
         </div>
-        <div class="form-group mx-2">
+        <div class="form-group mx-2 player-name">
           <input type="button" disabled class="form-control" name="submit" id="submit" rows="3" value="Submit" onclick="startGame(this.form)"></input>
         </div>
-      </div>
     </form>
 
 
-    <div id="game-board">
-      <div class="row">
-        <div class="col initial-message text-center" id="initial-message">
+    <div id="game-board" >
+        <div class="player-name" id="initial-message">
           Type in player names
         </div>
-      </div>
-      <div class="row d-none" id="start-game">
-        <table class="table table table-bordered h-50 text-center ">
-          <thead class="thead-dark">
+      <div id="start-game" class="d-none">
+        <table class="table">
+          <thead >
             <tr>
               <th> Tic </th>
               <th> Tac </th>
               <th> Toe </th>
             </tr>
           </thead>
-          <tbody class="table h-100">
-            <tr class="h-30">
-              <td class="cell-hover align-middle border border-dark border-left-0" id='0' scope="row">
-                <img src="./assets/no-img.png" alt="" class="img-rounded img-fluid center-block">
+          <tbody class="table-body">
+            <tr >
+              <td class="cell-hover"  id='0' scope="row">
+                <img src="./assets/no-img.png" alt="">
               </td>
-              <td class="cell-hover align-middle border border-dark" id='1'>
-                <img src="./assets/no-img.png" alt="" class="img-rounded img-fluid center-block">
+              <td class="cell-hover" id='1'>
+                <img src="./assets/no-img.png" alt="" >
               </td>
-              <td class="cell-hover align-middle border border-dark border-right-0" id='2'>
-                <img src="./assets/no-img.png" alt="" class="img-rounded img-fluid center-block">
-              </td>
-            </tr>
-            <tr class="h-30">
-              <td class="cell-hover align-middle border border-dark border-left-0" id='3' scope="row">
-                <img src="./assets/no-img.png" alt="" class="img-rounded img-fluid center-block">
-              </td>
-              <td class="cell-hover align-middle border border-dark" id='4'>
-                <img src="./assets/no-img.png" alt="" class="img-rounded img-fluid center-block">
-              </td>
-              <td class="cell-hover align-middle border border-dark border-right-0" id='5'>
-                <img src="./assets/no-img.png" alt="" class="img-rounded img-fluid center-block">
+              <td class="cell-hover" id='2'>
+                <img src="./assets/no-img.png" alt="" >
               </td>
             </tr>
-            <tr class="h-30">
-              <td class="cell-hover align-middle border border-dark border-left-0 border-bottom-0" id='6' scope="row">
-                <img src="./assets/no-img.png" alt="" class="img-rounded img-fluid center-block">
+            <tr >
+              <td class="cell-hover" id='3' scope="row">
+                <img src="./assets/no-img.png" alt="" >
               </td>
-              <td class="cell-hover align-middle border border-dark border-bottom-0" id='7'>
-                <img src="./assets/no-img.png" alt="" class="img-rounded img-fluid center-block">
+              <td class="cell-hover"  id='4'>
+                <img src="./assets/no-img.png" alt="" >
               </td>
-              <td class="cell-hover align-middle border border-dark border-bottom-0 border-right-0" id='8'>
-                <img src="./assets/no-img.png" alt="" class="img-rounded img-fluid center-block">
+              <td class="cell-hover"  id='5'>
+                <img src="./assets/no-img.png" alt="" >
+              </td>
+            </tr>
+            <tr >
+              <td class="cell-hover" id='6' scope="row">
+                <img src="./assets/no-img.png" alt="" >
+              </td>
+              <td class="cell-hover"  id='7'>
+                <img src="./assets/no-img.png" alt="" >
+              </td>
+              <td class="cell-hover" id='8'>
+                <img src="./assets/no-img.png" alt="" >
               </td>
             </tr>
           </tbody>
@@ -81,9 +76,7 @@
       </div>
     </div>
   </div>
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
   <script type="text/javascript" src="./assets/script.js"></script>
   <script>
   // Example starter JavaScript for disabling form submissions if there are invalid fields

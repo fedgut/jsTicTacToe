@@ -7,10 +7,27 @@ body {
 }
 
 .cell-hover:hover {
-  background-color: rgba(65, 65, 65, 0.589);
+  background-color: rgba(189, 189, 189, 0.788);
 }
 
 .cell-hover img {
   object-fit: contain;
   max-height: 100px;
+}
+
+.table {
+  margin: 0 auto;
+}
+
+.table-body {
+  background-color: black;
+}
+
+.player-name {
+  display: flex;
+  justify-content: center;
+}
+
+.d-none {
+  display: none;
 }

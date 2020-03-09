@@ -51,8 +51,8 @@ const startGame = (form) => {
   } else {
     initMessage.classList.add('d-none');
     startMessage.classList.remove('d-none');
-    const newGame = GameBoard(form[0].value, form[1].value);
-    return newGame;
+    // const newGame = GameBoard(form[0].value, form[1].value);
+    // return newGame;
   }
 };
 
