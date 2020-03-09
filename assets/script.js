@@ -68,7 +68,9 @@ ${board[7]} | ${board[8]} | ${board[9]}`;
     }
     checkWin(possibleWins());
     if (gameState()) {
-      console.log(getWinner());
+      document.getElementById(
+        "wining-player"
+      ).innerText = `Player ${getWinner()} wins`;
     }
   };
 
