@@ -92,6 +92,9 @@ const setImgSrc = (node, sign) => {
 const startGame = form => {
   const newGame = game(form[0].value, form[1].value);
   let sign = 'x';
+  cells.forEach((x) => {
+    x.firstElementChild.src = 'assets/no-img.png';
+  });
   cells.forEach(item => {
     item.onclick = function changeImg() {
       if (this.firstElementChild.src.includes('no-img.png')) {

@@ -17,11 +17,10 @@
           <label for="player2"> Player Two </label>
           <input type="text" name="name2" id="player2" />
         </div>
-        <div class="form-group mx-2 player-name">
+        <div class="player-name">
           <input
             type="button"
             disabled
-            class="form-control"
             name="submit"
             id="submit"
             value="Submit"
@@ -79,32 +78,43 @@
               </tr>
             </tbody>
           </table>
+          <div class="wining-player"></div>
+          <div class="reset">
+            <input
+              type="button"
+              name="submit"
+              id="submit"
+              value="Play Again"
+              onclick="startGame(document.getElementById('player-form'))"
+            />
+          </div>
+          <button></button>
         </div>
       </div>
     </div>
     <script src="./assets/script.js"></script>
     <script>
       (function() {
-        'use strict';
+        "use strict";
         window.addEventListener(
-          'load',
+          "load",
           function() {
-            var forms = document.getElementsByClassName('needs-validation');
+            var forms = document.getElementsByClassName("needs-validation");
             var validation = Array.prototype.filter.call(forms, function(form) {
               form.addEventListener(
-                'submit',
+                "submit",
                 function(event) {
                   if (form.checkValidity() === false) {
                     event.preventDefault();
                     event.stopPropagation();
                   }
-                  form.classList.add('was-validated');
+                  form.classList.add("was-validated");
                 },
-                false,
+                false
               );
             });
           },
-          false,
+          false
         );
       })();
     </script>
