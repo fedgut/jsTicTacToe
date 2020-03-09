@@ -1,102 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="assets/style.css"/>
-</head>
-<body>
-
-  <div class="">
-    <form id="player-form" class="needs-validation " novalidate>
-        <div class="player-name" id="player-input">
-          <label for="name1"> Player One</label>
-          <input type="text" class="" name="name1" id="player1" rows="3" required></input>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <div class="">
+      <form id="player-form" class="needs-validation " novalidate>
+        <div class="player-name player-input">
+          <label for="player1"> Player One</label>
+          <input type="text" class="" name="name1" id="player1" required />
         </div>
-        <div class="player-name" id="player-input">
-          <label for="name2"> Player Two </label>
-          <input type="text" name="name2" id="player2" rows="3"></input>
+        <div class="player-name player-input">
+          <label for="player2"> Player Two </label>
+          <input type="text" name="name2" id="player2" />
         </div>
         <div class="form-group mx-2 player-name">
-          <input type="button" disabled class="form-control" name="submit" id="submit" rows="3" value="Submit" onclick="startGame(this.form)"></input>
+          <input
+            type="button"
+            disabled
+            class="form-control"
+            name="submit"
+            id="submit"
+            value="Submit"
+            onclick="startGame(this.form)"
+          />
         </div>
-    </form>
+      </form>
 
-
-    <div id="game-board" >
+      <div id="game-board">
         <div class="player-name" id="initial-message">
           Type in player names
         </div>
-      <div id="start-game" class="d-none">
-        <table class="table">
-          <thead >
-            <tr>
-              <th> Tic </th>
-              <th> Tac </th>
-              <th> Toe </th>
-            </tr>
-          </thead>
-          <tbody class="table-body">
-            <tr >
-              <td class="cell-hover"  id='0' scope="row">
-                <img src="./assets/no-img.png" alt="">
-              </td>
-              <td class="cell-hover" id='1'>
-                <img src="./assets/no-img.png" alt="" >
-              </td>
-              <td class="cell-hover" id='2'>
-                <img src="./assets/no-img.png" alt="" >
-              </td>
-            </tr>
-            <tr >
-              <td class="cell-hover" id='3' scope="row">
-                <img src="./assets/no-img.png" alt="" >
-              </td>
-              <td class="cell-hover"  id='4'>
-                <img src="./assets/no-img.png" alt="" >
-              </td>
-              <td class="cell-hover"  id='5'>
-                <img src="./assets/no-img.png" alt="" >
-              </td>
-            </tr>
-            <tr >
-              <td class="cell-hover" id='6' scope="row">
-                <img src="./assets/no-img.png" alt="" >
-              </td>
-              <td class="cell-hover"  id='7'>
-                <img src="./assets/no-img.png" alt="" >
-              </td>
-              <td class="cell-hover" id='8'>
-                <img src="./assets/no-img.png" alt="" >
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div id="start-game" class="d-none">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Tic</th>
+                <th>Tac</th>
+                <th>Toe</th>
+              </tr>
+            </thead>
+            <tbody class="table-body">
+              <tr>
+                <td class="cell-hover" id="0">
+                  <img src="./assets/no-img.png" alt="" />
+                </td>
+                <td class="cell-hover" id="1">
+                  <img src="./assets/no-img.png" alt="" />
+                </td>
+                <td class="cell-hover" id="2">
+                  <img src="./assets/no-img.png" alt="" />
+                </td>
+              </tr>
+              <tr>
+                <td class="cell-hover" id="3">
+                  <img src="./assets/no-img.png" alt="" />
+                </td>
+                <td class="cell-hover" id="4">
+                  <img src="./assets/no-img.png" alt="" />
+                </td>
+                <td class="cell-hover" id="5">
+                  <img src="./assets/no-img.png" alt="" />
+                </td>
+              </tr>
+              <tr>
+                <td class="cell-hover" id="6">
+                  <img src="./assets/no-img.png" alt="" />
+                </td>
+                <td class="cell-hover" id="7">
+                  <img src="./assets/no-img.png" alt="" />
+                </td>
+                <td class="cell-hover" id="8">
+                  <img src="./assets/no-img.png" alt="" />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
-  </div>
 
-  <script type="text/javascript" src="./assets/script.js"></script>
-  <script>
-  // Example starter JavaScript for disabling form submissions if there are invalid fields
-  (function() {
-    'use strict';
-    window.addEventListener('load', function() {
-      // Fetch all the forms we want to apply custom Bootstrap validation styles to
-      var forms = document.getElementsByClassName('needs-validation');
-      // Loop over them and prevent submission
-      var validation = Array.prototype.filter.call(forms, function(form) {
-        form.addEventListener('submit', function(event) {
-          if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-          }
-          form.classList.add('was-validated');
-        }, false);
-      });
-    }, false);
-  })();
-  </script>
-</body>
+    <script src="./assets/script.js"></script>
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+        window.addEventListener(
+          'load',
+          function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+              form.addEventListener(
+                'submit',
+                function(event) {
+                  if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                  }
+                  form.classList.add('was-validated');
+                },
+                false,
+              );
+            });
+          },
+          false,
+        );
+      })();
+    </script>
+  </body>
 </html>
