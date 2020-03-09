@@ -28,6 +28,27 @@
           />
         </div>
       </form>
+      <div class="score-keeper d-none">
+        <table>
+          <caption>
+            SCORE
+          </caption>
+          <thead>
+            <tr>
+              <th id="pl1-name"></th>
+              <th id="pl2-name"></th>
+              <th>Ties</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="pl1-wins">0</td>
+              <td id="pl2-wins">0</td>
+              <td id="ties-wins">0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <div id="game-board">
         <div class="player-name" id="initial-message">
@@ -86,38 +107,38 @@
               type="button"
               name="submit"
               id="submit"
-              value="Reset"
+              value="Reset Board"
               onclick="startGame(document.getElementById('player-form'))"
             />
           </div>
         </div>
       </div>
     </div>
-    <script src="./assets/script.js"></script>
     <script>
       (function() {
-        "use strict";
+        'use strict';
         window.addEventListener(
-          "load",
+          'load',
           function() {
-            var forms = document.getElementsByClassName("needs-validation");
+            var forms = document.getElementsByClassName('needs-validation');
             var validation = Array.prototype.filter.call(forms, function(form) {
               form.addEventListener(
-                "submit",
+                'submit',
                 function(event) {
                   if (form.checkValidity() === false) {
                     event.preventDefault();
                     event.stopPropagation();
                   }
-                  form.classList.add("was-validated");
+                  form.classList.add('was-validated');
                 },
-                false
+                false,
               );
             });
           },
-          false
+          false,
         );
       })();
     </script>
+    <script src="./assets/script.js"></script>
   </body>
 </html>

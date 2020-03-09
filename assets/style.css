@@ -1,5 +1,6 @@
 body {
   height: 100vh;
+  margin: 0;
 }
 
 .cell-hover {
@@ -24,6 +25,11 @@ td img {
 }
 
 .player-name {
+  display: flex;
+  justify-content: center;
+}
+
+.score-keeper {
   display: flex;
   justify-content: center;
 }

@@ -1,3 +1,11 @@
+const pl1Name = document.getElementById('pl1-name');
+const pl2Name = document.getElementById('pl2-name');
+const formShow = document.getElementById('player-form');
+const scoreKeeper = document.querySelector('.score-keeper');
+const initMessage = document.getElementById('initial-message');
+const startMessage = document.getElementById('start-game');
+const pl1WinsTable = document.getElementById('pl1-wins');
+const pl2WinsTable = document.getElementById('pl2-wins');
 // game logic
 const game = (player1, player2) => {
   const board = {
@@ -68,11 +76,13 @@ ${board[7]} | ${board[8]} | ${board[9]}`;
     }
     checkWin(possibleWins());
     if (gameState() && getWinner() !== 'Tie game') {
-      document.getElementById(
-        'wining-player',
-      ).innerText = `Player ${getWinner()} wins!`;
+      document.getElementById('wining-player').innerText = `Player ${getWinner()} wins!`;
+      const winnerTable = document.getElementById(`${getWinner()}-wins`);
+      winnerTable.innerText = parseInt(winnerTable.innerText, 0) + 1;
     } else if (gameState() && getWinner() === 'Tie game') {
       document.getElementById('wining-player').innerText = `${getWinner()}`;
+      const tieTable = document.getElementById('ties-wins');
+      tieTable.innerText = parseInt(tieTable.innerText, 0) + 1;
     }
   };
 
@@ -108,17 +118,23 @@ const startGame = form => {
         newGame.move(sign, this.id);
         setImgSrc(this.firstElementChild, sign);
         sign = sign === 'x' ? 'o' : 'x';
+        if (newGame.gameState()) {
+          startGame(form);
+        }
       }
     };
   });
-
-  const initMessage = document.getElementById('initial-message');
-  const startMessage = document.getElementById('start-game');
+  pl1Name.innerText = newGame.players.X;
+  pl2Name.innerText = newGame.players.O;
   if (form[0].value === '' || form[1].value === '') {
     startMessage.classList.add('d-none');
     initMessage.classList.remove('d-none');
   } else {
     initMessage.classList.add('d-none');
+    formShow.classList.add('d-none');
+    scoreKeeper.classList.remove('d-none');
+    pl1WinsTable.id = `${newGame.players.X}-wins`;
+    pl2WinsTable.id = `${newGame.players.O}-wins`;
     startMessage.classList.remove('d-none');
   }
 };
