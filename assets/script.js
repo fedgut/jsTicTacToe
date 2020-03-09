@@ -9,10 +9,10 @@ const game = (player1, player2) => {
     6: 6,
     7: 7,
     8: 8,
-    9: 9
+    9: 9,
   };
 
-  const players = { X: player1, O: player2, Z: "Tie game" };
+  const players = { X: player1, O: player2, Z: 'Tie game' };
 
   const currentBoard = () => `\n${board[1]} | ${board[2]} | ${board[3]}
 ==========
@@ -29,13 +29,13 @@ ${board[7]} | ${board[8]} | ${board[9]}`;
       [board[3], board[6], board[9]],
       [board[3], board[5], board[7]],
       [board[4], board[5], board[6]],
-      [board[7], board[8], board[9]]
+      [board[7], board[8], board[9]],
     ];
     return possible;
   };
 
   let gameOver = false;
-  let winner = "null";
+  let winner = 'null';
 
   const getWinner = () => winner;
   const setWinner = win => {
@@ -46,7 +46,7 @@ ${board[7]} | ${board[8]} | ${board[9]}`;
     gameOver = true;
   };
 
-  const allStrings = el => typeof el === "string";
+  const allStrings = el => typeof el === 'string';
   const uniqArr = el => [...new Set(el)].length === 1;
 
   const checkWin = currentBoard => {
@@ -57,7 +57,7 @@ ${board[7]} | ${board[8]} | ${board[9]}`;
       setWinner(winner);
       endGame();
     } else if (currentBoard.length === filteredArr.length) {
-      setWinner("Z");
+      setWinner('Z');
       endGame();
     }
   };
@@ -67,12 +67,12 @@ ${board[7]} | ${board[8]} | ${board[9]}`;
       board[position] = sign;
     }
     checkWin(possibleWins());
-    if (gameState() && getWinner() !== "Tie game") {
+    if (gameState() && getWinner() !== 'Tie game') {
       document.getElementById(
-        "wining-player"
+        'wining-player',
       ).innerText = `Player ${getWinner()} wins!`;
-    } else if (gameState() && getWinner() === "Tie game") {
-      document.getElementById("wining-player").innerText = `${getWinner()}`;
+    } else if (gameState() && getWinner() === 'Tie game') {
+      document.getElementById('wining-player').innerText = `${getWinner()}`;
     }
   };
 
@@ -82,64 +82,60 @@ ${board[7]} | ${board[8]} | ${board[9]}`;
     getWinner,
     move,
     gameState,
-    currentBoard
+    currentBoard,
   };
 };
 // end game logic
 
-const cells = document.querySelectorAll(".cell-hover");
+const cells = document.querySelectorAll('.cell-hover');
 
 const setImgSrc = (node, sign) => {
   node.src = `./assets/${sign}-img.png`;
 };
 
+// eslint-disable-next-line no-unused-vars
 const startGame = form => {
   const newGame = game(form[0].value, form[1].value);
-  let sign = "x";
+  let sign = 'x';
   cells.forEach(x => {
-    x.firstElementChild.src = "assets/no-img.png";
-    x.classList.add("cell-hover");
+    x.firstElementChild.src = 'assets/no-img.png';
+    x.classList.add('cell-hover');
   });
   cells.forEach(item => {
     item.onclick = function changeImg() {
-      if (this.firstElementChild.src.includes("no-img.png")) {
-        this.classList.remove("cell-hover");
+      if (this.firstElementChild.src.includes('no-img.png')) {
+        this.classList.remove('cell-hover');
         newGame.move(sign, this.id);
         setImgSrc(this.firstElementChild, sign);
-        sign = sign === "x" ? "o" : "x";
+        sign = sign === 'x' ? 'o' : 'x';
       }
     };
   });
 
-  const initMessage = document.getElementById("initial-message");
-  const startMessage = document.getElementById("start-game");
-  if (form[0].value === "" || form[1].value === "") {
-    startMessage.classList.add("d-none");
-    initMessage.classList.remove("d-none");
+  const initMessage = document.getElementById('initial-message');
+  const startMessage = document.getElementById('start-game');
+  if (form[0].value === '' || form[1].value === '') {
+    startMessage.classList.add('d-none');
+    initMessage.classList.remove('d-none');
   } else {
-    initMessage.classList.add("d-none");
-    startMessage.classList.remove("d-none");
+    initMessage.classList.add('d-none');
+    startMessage.classList.remove('d-none');
   }
 };
 
 window.onload = function ready() {
-  const playerForm = document.getElementById("player-form");
+  const playerForm = document.getElementById('player-form');
   playerForm.reset();
-  const btn = document.getElementById("submit");
-  const select = document.querySelectorAll(".player-input");
+  const btn = document.getElementById('submit');
+  const select = document.querySelectorAll('.player-input');
   select.forEach(item => {
-    const ipt = item.getElementsByTagName("input");
-    ipt[0].addEventListener("input", event => {
-      if (playerForm.name1.value > "" && playerForm.name2.value > "") {
+    const ipt = item.getElementsByTagName('input');
+    ipt[0].addEventListener('input', () => {
+      if (playerForm.name1.value > '' && playerForm.name2.value > '') {
         btn.disabled = false;
       } else {
         btn.disabled = true;
       }
     });
   });
-};
-
-const store = {
-  players: ["pl1", "pl2"],
-  wins: { X: 0, O: 0, Z: 0 }
 };
