@@ -10,8 +10,11 @@ This project builds a browser based Tic Tac Toe game. You can check the complete
 
 ## Authors
 
-- Eduardo Gutierrez https://github.com/fedgut/
-- Alisson Peres https://github.com/alissonperes/
+- Eduardo Gutierrez 
+  - [GitHub](https://github.com/fedgut/)
+- Alisson Peres
+  - [Github](https://github.com/alissonperes/)
+  - [Linkedin](https://www.linkedin.com/in/alissonperes/)
 
 ## Getting started
 
