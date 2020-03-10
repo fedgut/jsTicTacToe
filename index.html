@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <div class="">
+      <form id="player-form" class="needs-validation " novalidate>
+        <div class="player-name player-input">
+          <label for="player1"> Player One</label>
+          <input type="text" class="" name="name1" id="player1" required />
+        </div>
+        <div class="player-name player-input">
+          <label for="player2"> Player Two </label>
+          <input type="text" name="name2" id="player2" />
+        </div>
+        <div class="player-name">
+          <input
+            type="button"
+            disabled
+            name="submit"
+            id="submit"
+            value="Submit"
+            onclick="startGame(this.form)"
+          />
+        </div>
+      </form>
+      <div class="score-keeper d-none">
+        <table>
+          <caption>
+            SCORE
+          </caption>
+          <thead>
+            <tr>
+              <th id="pl1-name"></th>
+              <th id="pl2-name"></th>
+              <th>Ties</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="pl1-wins">0</td>
+              <td id="pl2-wins">0</td>
+              <td id="ties-wins">0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="game-board">
+        <div class="player-name" id="initial-message">
+          Type in player names
+        </div>
+        <div class="player-name">
+          <h4 id="wining-player"></h4>
+        </div>
+        <div id="start-game" class="d-none">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Tic</th>
+                <th>Tac</th>
+                <th>Toe</th>
+              </tr>
+            </thead>
+            <tbody class="table-body">
+              <tr>
+                <td class="cell-hover" id="1">
+                  <img src="./assets/no-img.png" alt="" />
+                </td>
+                <td class="cell-hover" id="2">
+                  <img src="./assets/no-img.png" alt="" />
+                </td>
+                <td class="cell-hover" id="3">
+                  <img src="./assets/no-img.png" alt="" />
+                </td>
+              </tr>
+              <tr>
+                <td class="cell-hover" id="4">
+                  <img src="./assets/no-img.png" alt="" />
+                </td>
+                <td class="cell-hover" id="5">
+                  <img src="./assets/no-img.png" alt="" />
+                </td>
+                <td class="cell-hover" id="6">
+                  <img src="./assets/no-img.png" alt="" />
+                </td>
+              </tr>
+              <tr>
+                <td class="cell-hover" id="7">
+                  <img src="./assets/no-img.png" alt="" />
+                </td>
+                <td class="cell-hover" id="8">
+                  <img src="./assets/no-img.png" alt="" />
+                </td>
+                <td class="cell-hover" id="9">
+                  <img src="./assets/no-img.png" alt="" />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="reset player-name">
+            <input
+              type="button"
+              name="submit"
+              id="submit"
+              value="Reset Board"
+              onclick="startGame(document.getElementById('player-form'))"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      (function() {
+        'use strict';
+        window.addEventListener(
+          'load',
+          function() {
+            var forms = document.getElementsByClassName('needs-validation');
+            var validation = Array.prototype.filter.call(forms, function(form) {
+              form.addEventListener(
+                'submit',
+                function(event) {
+                  if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                  }
+                  form.classList.add('was-validated');
+                },
+                false,
+              );
+            });
+          },
+          false,
+        );
+      })();
+    </script>
+    <script src="./assets/script.js"></script>
+  </body>
+</html>
