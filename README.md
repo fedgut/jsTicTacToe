@@ -27,4 +27,4 @@ To get started with the app, clone the repo and you are set to go.
 
 ## Testing
 
-- DevDependencies include webpack and babel to transpile ES6 for testing purposes only, there is no bundle
+- DevDependencies include webpack and babel to transpile ES6 for testing purposes only, there is no bundle.
