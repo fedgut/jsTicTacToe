@@ -94,6 +94,7 @@ ${board[7]} | ${board[8]} | ${board[9]}`;
     gameState,
     currentBoard,
     checkWin,
+    possibleWins,
   };
 };
 // end game logic
