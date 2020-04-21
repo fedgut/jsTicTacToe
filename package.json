@@ -1,14 +1,14 @@
 {
-  "name": "mv_jsTicTacToe",
+  "name": "mvjstictactoe",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fedgut/jsTicTacToe.git"
+    "url": "git+https://github.com/fedgut/mv_jsTicTacToe.git"
   },
   "keywords": [],
   "author": "",
@@ -18,8 +18,18 @@
   },
   "homepage": "https://github.com/fedgut/jsTicTacToe#readme",
   "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "babel-loader": "^8.1.0",
+    "babel-polyfill": "^6.26.0",
+    "css-loader": "^3.5.2",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.20.1"
+    "eslint-plugin-import": "^2.20.1",
+    "file-loader": "^6.0.0",
+    "jest": "^25.3.0",
+    "style-loader": "^1.1.4",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
   }
 }

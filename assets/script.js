@@ -93,6 +93,8 @@ ${board[7]} | ${board[8]} | ${board[9]}`;
     move,
     gameState,
     currentBoard,
+    checkWin,
+    possibleWins,
   };
 };
 // end game logic
@@ -155,3 +157,5 @@ window.onload = function ready() {
     });
   });
 };
+
+export default game;

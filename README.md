@@ -28,3 +28,6 @@ To get started with the app, clone the repo and you are set to go.
 - [Microverse](https://www.microverse.org/)
 - [The Odin Project](https://www.theodinproject.com)
 
+## Testing
+
+- DevDependencies include webpack and babel to transpile ES6 for testing purposes only, there is no bundle.
